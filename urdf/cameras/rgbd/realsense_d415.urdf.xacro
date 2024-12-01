@@ -216,6 +216,7 @@
                <!-- ================== Color Camera =================== -->
                <sensor name="color" type="camera">
                     <pose frame="">0 -0.046 0.004 0 0 0</pose>
+                    <topic>rgbd_camera/color</topic>
                     <camera name="__default__">
                          <horizontal_fov>1.211259</horizontal_fov>
                          <image>
@@ -240,6 +241,7 @@
                <!-- ================= Depth Camera =================== -->
                <sensor name="depth" type="depth">
                     <pose frame="">0 -0.03 0.004 0 0 0</pose>
+                    <topic>rgbd_camera/depth</topic>
                     <camera name="__default__">
                          <horizontal_fov>1.211259</horizontal_fov>
                          <image>
