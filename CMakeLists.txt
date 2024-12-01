@@ -111,7 +111,7 @@ set(INCLUDE_DIRS include
     ${rclcpp_INCLUDE_DIRS}
     ${CMAKE_CURRENT_BINARY_DIR}/srv
 )
-include_directories(${INCLUDE_DIRS})
+# include_directories(${INCLUDE_DIRS})
 
 set(LIBS
      visualization_msgs
@@ -187,20 +187,20 @@ set(BUILT_GAZEBO_ROS_PLUGINS_LIST "")
 # target_link_libraries(gazebo_ros_imu_mod ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
 # add_dependencies(gazebo_ros_imu_mod ${PROJECT_NAME}_generate_messages_cpp)
 
-add_library(gazebo_ros_imu_hec_mod SHARED src/motion/gazebo_ros_imu_mod_hec.cpp)
-target_link_libraries(gazebo_ros_imu_hec_mod ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES})
-list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_imu_hec_mod)
-ament_target_dependencies(gazebo_ros_imu_hec_mod ${LIBS})
+# add_library(gazebo_ros_imu_hec_mod SHARED src/motion/gazebo_ros_imu_mod_hec.cpp)
+# target_link_libraries(gazebo_ros_imu_hec_mod ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES})
+# list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_imu_hec_mod)
+# ament_target_dependencies(gazebo_ros_imu_hec_mod ${LIBS})
 
-add_library(gazebo_ros_gps_hec_mod SHARED src/gps/gazebo_ros_gps_mod_hec.cpp)
-target_link_libraries(gazebo_ros_gps_hec_mod ${GAZEBO_LIBRARIES})
-list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_gps_hec_mod)
-ament_target_dependencies(gazebo_ros_gps_hec_mod ${LIBS})
+# add_library(gazebo_ros_gps_hec_mod SHARED src/gps/gazebo_ros_gps_mod_hec.cpp)
+# target_link_libraries(gazebo_ros_gps_hec_mod ${GAZEBO_LIBRARIES})
+# list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_gps_hec_mod)
+# ament_target_dependencies(gazebo_ros_gps_hec_mod ${LIBS})
 
-add_library(gazebo_ros_gps_with_dropout SHARED src/gps/gazebo_ros_gps_with_dropout.cpp)
-target_link_libraries(gazebo_ros_gps_with_dropout ${GAZEBO_LIBRARIES})
-list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_gps_with_dropout)
-ament_target_dependencies(gazebo_ros_gps_with_dropout ${LIBS})
+# add_library(gazebo_ros_gps_with_dropout SHARED src/gps/gazebo_ros_gps_with_dropout.cpp)
+# target_link_libraries(gazebo_ros_gps_with_dropout ${GAZEBO_LIBRARIES})
+# list(APPEND BUILT_GAZEBO_ROS_PLUGINS_LIST gazebo_ros_gps_with_dropout)
+# ament_target_dependencies(gazebo_ros_gps_with_dropout ${LIBS})
 
 # add_library(gazebo_ros_skid_steer_w_encoder SHARED src/motion/skid_steering_with_encoder.cpp)
 # # target_include_directories(gazebo_ros_skid_steer_w_encoder PUBLIC include)
@@ -222,16 +222,16 @@ ament_target_dependencies(gazebo_ros_gps_with_dropout ${LIBS})
 # add_dependencies(gazebo_ros_realsense ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_gencfg)
 
 # Connect targets with locally defined messages
-get_available_rmw_implementations(rmw_implementations2)
-foreach(rmw_implementation ${rmw_implementations2})
-    find_package("${rmw_implementation}" REQUIRED)
-    get_rmw_typesupport(typesupport_impls "${rmw_implementation}" LANGUAGE "cpp")
-    foreach(typesupport_impl ${typesupport_impls})
-        rosidl_target_interfaces(gazebo_ros_imu_hec_mod ${PROJECT_NAME} ${typesupport_impl})
-        rosidl_target_interfaces(gazebo_ros_gps_hec_mod ${PROJECT_NAME} ${typesupport_impl})
-        rosidl_target_interfaces(gazebo_ros_gps_with_dropout ${PROJECT_NAME} ${typesupport_impl})
-    endforeach()
-endforeach()
+# get_available_rmw_implementations(rmw_implementations2)
+# foreach(rmw_implementation ${rmw_implementations2})
+#     find_package("${rmw_implementation}" REQUIRED)
+#     get_rmw_typesupport(typesupport_impls "${rmw_implementation}" LANGUAGE "cpp")
+#     foreach(typesupport_impl ${typesupport_impls})
+#         rosidl_target_interfaces(gazebo_ros_imu_hec_mod ${PROJECT_NAME} ${typesupport_impl})
+#         rosidl_target_interfaces(gazebo_ros_gps_hec_mod ${PROJECT_NAME} ${typesupport_impl})
+#         rosidl_target_interfaces(gazebo_ros_gps_with_dropout ${PROJECT_NAME} ${typesupport_impl})
+#     endforeach()
+# endforeach()
 
 #############
 ## Install ##
